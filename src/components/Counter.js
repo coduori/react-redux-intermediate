@@ -1,13 +1,12 @@
 import { useSelector, useDispatch } from "react-redux";
-import { counterActions } from "../store/index";
+import counterActions from "../store/counter-slice";
 import classes from "./Counter.module.css";
 const Counter = () => {
-  const showCounter = useSelector(state => state.showCounter);
-  const counter = useSelector(state => state.counter);
+  const showCounter = useSelector(state => state.counter.showCounter);
+  const counter = useSelector(state => state.counter.counter);
 
   const dispatch = useDispatch();
   const toggleCounterHandler = () => {
-    console.log("toggleCounter...");
     dispatch(counterActions.toggleCounter());
   };
   const increment5CountHandler = () => {
